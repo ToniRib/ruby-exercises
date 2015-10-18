@@ -15,6 +15,10 @@ class Dragon
 
   def eat
     @times_eaten += 1
-    @hungry = @times_eaten > 2 ? false : true
+    @hungry = determine_hunger
+  end
+
+  def determine_hunger
+    @times_eaten < 3
   end
 end
