@@ -4,7 +4,6 @@ class Wizard
   def initialize(name, hash = {bearded: true})
     @name = name
     @bearded = hash[:bearded]
-    @rested = true
     @spells_cast = 0
   end
 
@@ -17,12 +16,11 @@ class Wizard
   end
 
   def rested?
-    @rested
+    @spells_cast < 3
   end
 
   def cast
     @spells_cast += 1
-    @rested = @spells_cast > 2 ? false : true
     'MAGIC MISSILE!'
   end
 end

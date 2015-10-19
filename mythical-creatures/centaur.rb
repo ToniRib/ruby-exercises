@@ -12,17 +12,13 @@ class Centaur
 
   def shoot
     @num_actions += 1
-    @cranky = determine_crankiness
+    @cranky = cranky?
     cranky? || laying? ? say_no : 'Twang!!!'
-  end
-
-  def determine_crankiness
-    @num_actions > 2
   end
 
   def run
     @num_actions += 1
-    @cranky = determine_crankiness
+    @cranky = cranky?
     cranky? || laying? ? say_no : 'Clop clop clop clop!!!'
   end
 
@@ -61,7 +57,7 @@ class Centaur
   end
 
   def cranky?
-    @cranky
+    @num_actions > 2
   end
 
   def standing?

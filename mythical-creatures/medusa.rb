@@ -4,7 +4,6 @@ class Medusa
   def initialize(name)
     @name = name
     @statues = []
-    @alive = true
     @num_victims = 0
   end
 
@@ -13,7 +12,7 @@ class Medusa
   end
 
   def alive?
-    @alive
+    @num_victims < 5
   end
 
   def stare(person)
@@ -24,7 +23,6 @@ class Medusa
     end
     person.stoned = true
     @num_victims += 1
-    @alive = @num_victims > 4 ? false : true
   end
 end
 
